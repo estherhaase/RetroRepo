@@ -41,4 +41,5 @@ ext {
     okHttpUrlConnectionVersion = '3.13.1'
 
     archLifecycleVersion = '1.1.1'
+    archPagingVersion = '1.0.1'
 }

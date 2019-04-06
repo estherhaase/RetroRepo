@@ -1,18 +1,8 @@
 package com.example.android.retrorepo.remote
-
-import android.arch.lifecycle.LiveData
 import com.example.android.retrorepo.remote.data.Repository
+import retrofit2.Call
 
 class LocalNetworkService private constructor() : NetworkService {
-
-
-    override fun getRepositories(keyword: String): LiveData<List<Repository>>? {
-        return null
-    }
-
-    override fun getRepositoriesByLanguage(keyword: String, language: String): LiveData<List<Repository>>? {
-        return null
-    }
 
     companion object {
 
@@ -31,5 +21,11 @@ class LocalNetworkService private constructor() : NetworkService {
                    }
                    return sInstance
                }*/
+    }
+
+
+    override fun getRepositories(keyword: String, page: Int): Call<Repository> {
+        val service = ServiceGenerator.createService(NetworkService::class.java)
+        return service.getRepositories(keyword, page)
     }
 }

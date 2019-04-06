@@ -1,4 +1,4 @@
 package com.example.android.retrorepo.remote.data;
 
-public class Repository {
+public class Owner {
 }

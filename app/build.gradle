@@ -49,5 +49,8 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp-urlconnection:$okHttpUrlConnectionVersion"
 
     implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
+
     implementation "android.arch.lifecycle:viewmodel:$archLifecycleVersion"
+    implementation "android.arch.paging:runtime:$archPagingVersion"
 }
