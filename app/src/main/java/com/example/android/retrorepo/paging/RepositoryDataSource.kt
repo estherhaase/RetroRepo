@@ -14,7 +14,7 @@ class RepositoryDataSource(private val networkService: NetworkService, private v
     PageKeyedDataSource<Int, Item>() {
 
 
-    private val loadingState = MutableLiveData<State>()
+    var loadingState = MutableLiveData<State>()
 
     override fun loadInitial(
         params: PageKeyedDataSource.LoadInitialParams<Int>,
