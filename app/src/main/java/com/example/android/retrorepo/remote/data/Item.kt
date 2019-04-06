@@ -4,76 +4,76 @@ import com.google.gson.annotations.SerializedName
 
 data class Item(
 
-    private val id: Int,
+ val id: Int,
 
-    @SerializedName("node_id")
+ @SerializedName("node_id")
     @Transient
     internal var nodeId: String,
 
-    private val name: String,
+ val name: String,
 
-    @Transient
+ @Transient
     internal var owner: Owner,
 
-    @SerializedName("private")
+ @SerializedName("private")
     @Transient
     internal var isPrivate: Boolean,
 
-    @SerializedName("html_url")
-    private val repoUrl: String,
+ @SerializedName("html_url")
+ val repoUrl: String,
 
-    private val description: String,
+ val description: String,
 
-    @Transient
+ @Transient
     internal var fork: Boolean,
 
-    @Transient
+ @Transient
     internal var url: String,
 
-    @SerializedName("created_at")
+ @SerializedName("created_at")
     @Transient
     internal var createdAt: String,
 
-    @SerializedName("updated_at")
+ @SerializedName("updated_at")
     @Transient
     internal var updateddAt: String,
 
-    @SerializedName("pushed_at")
+ @SerializedName("pushed_at")
     @Transient
     internal var pushedAt: String,
 
-    @Transient
+ @Transient
     internal var homepage: String,
 
-    @Transient
+ @Transient
     internal var size: Int,
 
-    @SerializedName("stargazers_count")
+ @SerializedName("stargazers_count")
     @Transient
     internal var startgazers: Int,
 
-    @SerializedName("watchers_count")
+ @SerializedName("watchers_count")
     @Transient
     internal var watchers: Int,
 
-    private val language: String,
+ val language: String,
 
-    @SerializedName("forks_count")
+ @SerializedName("forks_count")
     @Transient
     internal var forks: Int,
 
-    @SerializedName("open_issues_count")
+ @SerializedName("open_issues_count")
     @Transient
     internal var openIssues: Int,
 
-    @SerializedName("master_branch")
+ @SerializedName("master_branch")
     @Transient
     internal var masterBranch: String,
 
-    @SerializedName("default_branch")
+ @SerializedName("default_branch")
     @Transient
     internal var defaultBranch: String,
 
-    private val score: Double
+ val score: Double
 
 )

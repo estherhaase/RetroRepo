@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel = obtainViewModel(this)
+        // viewModel.loadRepositories("tetris", 1)
 
         viewModel.repositories.observe(this, Observer { repositories: Repository? ->
 
