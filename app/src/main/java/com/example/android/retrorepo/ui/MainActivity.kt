@@ -78,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         repositoryListAdapter.setOnItemClickListener(object : RepositoryListAdapter.ItemClickListener {
             override fun onClick(item: Item?) {
                 if (item != null) {
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
                     layoutDetail.visibility = View.VISIBLE
                     bottomSheet.textUserUrl.text = item.owner.url
                     bottomSheet.textUser.text = item.owner.login
