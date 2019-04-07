@@ -1,6 +1,7 @@
 package com.example.android.retrorepo.ui
 
 import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.Transformations
 import android.arch.lifecycle.ViewModel
 import android.arch.paging.LivePagedListBuilder
@@ -13,35 +14,29 @@ import com.example.android.retrorepo.remote.data.Item
 
 class MainViewModel(private val networkService: NetworkService) : ViewModel() {
 
-    var repositories: LiveData<PagedList<Item>>
-    private val repositoryDataSourceFactory: RepositoryDataSourceFactory
+    private lateinit var repositoryDataSourceFactory: RepositoryDataSourceFactory
+    var repositoriesMediator = MediatorLiveData<PagedList<Item>>()
 
 
-    /*  private lateinit var repositoryDataSourceFactory: RepositoryDataSourceFactory
+    fun getData(keyword: String) {
+        val data = initDataSourceFactory(keyword)
+        repositoriesMediator.addSource(data) {
 
-     init {
-         repositories = MutableLiveData<PagedList<Item>>()
-     }
+            repositoriesMediator.postValue(it)
 
-    fun initDataSourceFactory(keyword:String) {
-         repositoryDataSourceFactory = RepositoryDataSourceFactory(networkService, keyword)
-         val config = PagedList.Config.Builder()
-             .setPageSize(30)
-             .setEnablePlaceholders(true)
-             .setInitialLoadSizeHint(10)
-             .build()
-         repositories = LivePagedListBuilder<Int, Item>(repositoryDataSourceFactory, config).build()
-     }*/
+            repositoriesMediator.removeSource(data)
+        }
+    }
 
-    init {
 
-        repositoryDataSourceFactory = RepositoryDataSourceFactory(networkService, "tetris")
+    fun initDataSourceFactory(keyword: String): LiveData<PagedList<Item>> {
+        repositoryDataSourceFactory = RepositoryDataSourceFactory(networkService, keyword)
         val config = PagedList.Config.Builder()
             .setPageSize(30)
             .setEnablePlaceholders(true)
             .setInitialLoadSizeHint(10)
             .build()
-        repositories = LivePagedListBuilder<Int, Item>(repositoryDataSourceFactory, config).build()
+        return LivePagedListBuilder<Int, Item>(repositoryDataSourceFactory, config).build()
     }
 
     fun getState(): LiveData<State> = Transformations

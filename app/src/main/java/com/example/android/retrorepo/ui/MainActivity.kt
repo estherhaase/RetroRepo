@@ -31,11 +31,12 @@ class MainActivity : AppCompatActivity() {
 
         recycler_repos.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         recycler_repos.adapter = repositoryListAdapter
-        /* buttonSearch.setOnClickListener { v ->
-             viewModel.initDataSourceFactory(editTextSearch.text.toString())
-         }*/
+        buttonSearch.setOnClickListener { v ->
+            // viewModel.initDataSourceFactory(editTextSearch.text.toString())
+            viewModel.getData(editTextSearch.text.toString())
+        }
 
-        viewModel.repositories.observe(this, Observer {
+        viewModel.repositoriesMediator.observe(this, Observer {
             repositoryListAdapter.submitList(it)
         })
 
