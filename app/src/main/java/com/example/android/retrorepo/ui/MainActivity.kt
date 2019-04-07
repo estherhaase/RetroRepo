@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
+import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
@@ -22,12 +23,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var repositoryListAdapter: RepositoryListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         viewModel = obtainViewModel(this)
 
         setupRecycler()
+        setupToolbar()
 
         //----------------- Listener
 
@@ -71,6 +74,13 @@ class MainActivity : AppCompatActivity() {
     fun View.closeSoftKeyboard() {
         val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(windowToken, 0)
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(toolbar)
+        val actionbar: ActionBar? = supportActionBar
+
+        actionbar?.title = getString(R.string.search)
     }
 
 }

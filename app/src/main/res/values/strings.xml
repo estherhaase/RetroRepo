@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">RetroRepo</string>
     <string name="language">language: %s</string>
-    <string name="hint_search">Search for repositories...</string>
-    <string name="search">Search</string>
+    <string name="hint_search">Enter keyword…</string>
+    <string name="search">Github Search</string>
+    <string name="go">Go</string>
 </resources>
