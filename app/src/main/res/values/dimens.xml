@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_big">18sp</dimen>
+
+    <dimen name="padding_tiny">4dp</dimen>
+    <dimen name="padding_normal">16dp</dimen>
+
+    <dimen name="margin_normal">16dp</dimen>
+
+    <dimen name="height_list_item">64dp</dimen>
+    <dimen name="height_text_view_list">36dp</dimen>
+
+    <dimen name="divider_height">1dp</dimen>
+</resources>

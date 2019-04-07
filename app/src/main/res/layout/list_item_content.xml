@@ -3,13 +3,32 @@
 
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            style="@style/AppTheme.ListItem">
 
+        <TextView
+                android:id="@+id/textLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="javascript"/>
         <TextView
                 android:id="@+id/textName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="react-tetris"/>
+                tools:text="react-tetris"
+                android:textAppearance="@style/TextAppearance.AppTheme.Medium"/>
+
+        <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="a really cool repository"
+                android:textAppearance="@style/TextAppearance.AppTheme.Medium"/>
+
+        <View
+                style="@style/AppTheme.Divider"
+                android:layout_width="match_parent"/>
 
     </LinearLayout>
 

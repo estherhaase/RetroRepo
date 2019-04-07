@@ -2,11 +2,13 @@ package com.example.android.retrorepo.ui
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import com.example.android.retrorepo.R
 import com.example.android.retrorepo.ViewModelFactory
@@ -31,7 +33,12 @@ class MainActivity : AppCompatActivity() {
 
         buttonSearch.setOnClickListener { v ->
             viewModel.getData(editTextSearch.text.toString())
+            editTextSearch.closeSoftKeyboard()
 
+        }
+
+        editTextSearch.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) buttonSearch.visibility = View.VISIBLE
         }
 
         //----------------- Observer
@@ -61,5 +68,9 @@ class MainActivity : AppCompatActivity() {
         return ViewModelProviders.of(activity, factory).get(MainViewModel::class.java)
     }
 
+    fun View.closeSoftKeyboard() {
+        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(windowToken, 0)
+    }
 
 }

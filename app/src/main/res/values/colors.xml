@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="retroBlue">#044B7F</color>
+    <color name="retroTurquoise">#107E7D</color>
+    <color name="retroBlack">#000000</color>
+    <color name="retroGreen">#5F8223</color>
+    <color name="retroWhite">#FFFFFF</color>
 </resources>

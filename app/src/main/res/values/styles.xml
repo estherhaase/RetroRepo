@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -7,5 +7,63 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/retroBlue</item>
+        <item name="colorPrimary">@color/retroGreen</item>
+        <item name="colorAccent">@color/retroTurquoise</item>
+        <item name="android:textColorPrimary">@color/retroWhite</item>
+    </style>
+
+
+    <style name="TextAppearance.AppTheme.Medium" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/retroBlack</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Big" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="android:textColor">@color/retroWhite</item>
+    </style>
+
+    <style name="AppTheme.ListItem">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">@dimen/padding_normal</item>
+        <item name="android:paddingEnd">@dimen/padding_normal</item>
+        <item name="android:paddingLeft">@dimen/padding_normal</item>
+        <item name="android:paddingRight">@dimen/padding_normal</item>
+        <item name="android:paddingTop">@dimen/padding_normal</item>
+    </style>
+
+    <style name="AppTheme.ButtonSearch" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="colorButtonNormal">@color/retroWhite</item>
+        <item name="android:textColor">@color/retroBlack</item>
+        <item name="android:padding">@dimen/padding_normal</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:stateListAnimator" tools:targetApi="lollipop">@null</item>
+        <item name="android:layout_marginStart">@dimen/margin_normal</item>
+        <item name="android:layout_marginRight">@dimen/margin_normal</item>
+        <item name="android:layout_marginEnd">@dimen/margin_normal</item>
+        <item name="android:layout_marginLeft">@dimen/margin_normal</item>
+    </style>
+
+    <style name="AppTheme.CustomEditText" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/padding_normal</item>
+        <item name="android:layout_margin">@dimen/margin_normal</item>
+        <item name="android:textColor">@color/retroBlack</item>
+    </style>
+
+    <style name="AppTheme.Divider">
+        <item name="android:layout_height">@dimen/divider_height</item>
+        <item name="android:layout_margin">@dimen/padding_normal</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
+
 
 </resources>
