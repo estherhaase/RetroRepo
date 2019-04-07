@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              app:behavior_hideable="false"
+              app:behavior_peekHeight="@dimen/peek_height"
+              app:layout_behavior="@string/bottom_sheet_behavior"
+              android:background="@color/retroBlue"
+              android:animateLayoutChanges="true">
+
+    <ImageView
+            android:id="@+id/imageBottomSheet"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/peek_height"
+            android:src="@drawable/ic_arrow_up"/>
+
+    <LinearLayout
+            android:id="@+id/layoutDetail"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_big">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_user"
+                style="@style/AppTheme.DetailItem"/>
+        <TextView
+                android:id="@+id/textUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="some user"
+
+                android:textAppearance="@style/TextAppearance.AppTheme.Big"
+                android:padding="@dimen/padding_tiny"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_user_url"
+                style="@style/AppTheme.DetailItem"/>
+        <TextView
+                android:id="@+id/textUserUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="https://github.com/chvin/"
+                android:textAppearance="@style/TextAppearance.AppTheme.Big"
+                android:padding="@dimen/padding_tiny"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_description"
+                style="@style/AppTheme.DetailItem"/>
+        <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="a really cool repository"
+                android:textAppearance="@style/TextAppearance.AppTheme.Big"
+                android:padding="@dimen/padding_tiny"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_language"
+                style="@style/AppTheme.DetailItem"/>
+        <TextView
+                android:id="@+id/textLanguageDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="javascript"
+                android:textAppearance="@style/TextAppearance.AppTheme.Big"
+                android:padding="@dimen/padding_tiny"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_score"
+                style="@style/AppTheme.DetailItem"/>
+        <TextView
+                android:id="@+id/textCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="432543"
+                android:textAppearance="@style/TextAppearance.AppTheme.Big"
+                android:padding="@dimen/padding_tiny"
+        />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_repository_url"
+                style="@style/AppTheme.DetailItem"/>
+        <TextView
+                android:id="@+id/textUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="https://github.com/chvin/react-tetris"
+                android:textAppearance="@style/TextAppearance.AppTheme.Big"
+                android:padding="@dimen/padding_tiny"/>
+
+    </LinearLayout>
+</LinearLayout>

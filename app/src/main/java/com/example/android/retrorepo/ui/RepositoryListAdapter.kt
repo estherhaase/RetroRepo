@@ -11,6 +11,15 @@ import com.example.android.retrorepo.tools.Constants
 class RepositoryListAdapter() : PagedListAdapter<Item, RecyclerView.ViewHolder>(ItemsDifferCallback) {
 
     private var state = State.LOADING
+    lateinit var itemClickListener: ItemClickListener
+
+    fun setOnItemClickListener(mClickListener: ItemClickListener) {
+        itemClickListener = mClickListener
+    }
+
+    interface ItemClickListener {
+        fun onClick(item: Item?)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == Constants.CONTENT_VIEW_TYPE) ContentViewHolder.create(parent) else LoadingViewHolder.create(
@@ -21,7 +30,9 @@ class RepositoryListAdapter() : PagedListAdapter<Item, RecyclerView.ViewHolder>(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == Constants.CONTENT_VIEW_TYPE)
             (holder as ContentViewHolder).bind(getItem(position))
+
         else (holder as LoadingViewHolder).bind(state)
+        holder.itemView.setOnClickListener { itemClickListener.onClick(getItem(holder.adapterPosition)) }
     }
 
     override fun getItemViewType(position: Int): Int {

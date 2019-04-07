@@ -12,7 +12,6 @@ class ContentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(item: Item?) {
         if (item != null) {
             itemView.textName.text = item.name
-            itemView.textDescription.text = item.description
             itemView.textLanguage.text = item.language
         }
     }

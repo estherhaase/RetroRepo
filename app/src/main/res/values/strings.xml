@@ -4,4 +4,10 @@
     <string name="hint_search">Enter keyword…</string>
     <string name="search">Github Search</string>
     <string name="go">Go</string>
+    <string name="title_user">User:</string>
+    <string name="title_user_url">User Url:</string>
+    <string name="title_description">Description:</string>
+    <string name="title_language">Language:</string>
+    <string name="title_score">Score:</string>
+    <string name="title_repository_url">Repository Url:</string>
 </resources>

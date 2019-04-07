@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
+import android.support.design.widget.BottomSheetBehavior
 import android.support.v4.app.FragmentActivity
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
@@ -14,7 +15,10 @@ import android.widget.LinearLayout
 import com.example.android.retrorepo.R
 import com.example.android.retrorepo.ViewModelFactory
 import com.example.android.retrorepo.enums.State
+import com.example.android.retrorepo.remote.data.Item
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_repository_detail.*
+import kotlinx.android.synthetic.main.layout_repository_detail.view.*
 import kotlinx.android.synthetic.main.list_item_loading.*
 
 class MainActivity : AppCompatActivity() {
@@ -28,11 +32,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel = obtainViewModel(this)
+        var bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
 
         setupRecycler()
         setupToolbar()
 
         //----------------- Listener
+
+        bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(view: View, state: Int) {
+                when (state) {
+                    BottomSheetBehavior.STATE_COLLAPSED -> imageBottomSheet.setImageResource(R.drawable.ic_arrow_up)
+                    BottomSheetBehavior.STATE_EXPANDED -> imageBottomSheet.setImageResource(R.drawable.ic_arrow_down)
+                }
+            }
+
+            override fun onSlide(p0: View, p1: Float) {
+            }
+        })
 
         buttonSearch.setOnClickListener { v ->
             viewModel.getData(editTextSearch.text.toString())
@@ -55,6 +72,21 @@ class MainActivity : AppCompatActivity() {
                 if (viewModel.isItemListEmpty() && it == State.LOADING) View.VISIBLE else View.GONE
             if (!viewModel.isItemListEmpty()) {
                 repositoryListAdapter.setState(State.FINISHED)
+            }
+        })
+
+        repositoryListAdapter.setOnItemClickListener(object : RepositoryListAdapter.ItemClickListener {
+            override fun onClick(item: Item?) {
+                if (item != null) {
+                    layoutDetail.visibility = View.VISIBLE
+                    bottomSheet.textUserUrl.text = item.owner.url
+                    bottomSheet.textUser.text = item.owner.login
+                    bottomSheet.textCount.text = item.score.toString()
+                    bottomSheet.textDescription.text = item.description
+                    bottomSheet.textLanguageDetail.text = item.language
+                    bottomSheet.textUrl.text = item.repoUrl
+
+                }
             }
         })
     }

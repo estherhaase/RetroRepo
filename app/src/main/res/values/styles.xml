@@ -36,6 +36,12 @@
         <item name="android:paddingRight">@dimen/padding_normal</item>
         <item name="android:paddingTop">@dimen/padding_normal</item>
     </style>
+    <style name="AppTheme.DetailItem">
+        <item name="android:textColor">@color/retroWhite</item>
+        <item name="android:padding">@dimen/padding_tiny</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
 
     <style name="AppTheme.ButtonSearch" parent="Widget.AppCompat.Button.Colored">
         <item name="android:layout_width">wrap_content</item>
