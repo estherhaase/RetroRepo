@@ -55,14 +55,14 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        buttonSearch.setOnClickListener { v ->
+        buttonSearch.setOnClickListener {
             progressBarHome.visibility = View.VISIBLE
             viewModel.getData(editTextSearch.text.toString())
             editTextSearch.closeSoftKeyboard()
 
         }
 
-        editTextSearch.setOnFocusChangeListener { v, hasFocus ->
+        editTextSearch.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) buttonSearch.visibility = View.VISIBLE
         }
 

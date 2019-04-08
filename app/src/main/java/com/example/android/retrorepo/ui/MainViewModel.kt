@@ -20,7 +20,7 @@ class MainViewModel(private val networkService: NetworkService, private val data
     private lateinit var repositoryDataSourceFactory: RepositoryDataSourceFactory
     var repositoriesMediator = MediatorLiveData<PagedList<Item>>()
     var state = MediatorLiveData<State>()
-    var searchTerms = dataRepository!!.searchTerms
+    var searchTerms = dataRepository!!.getSearchTerms()
 
 
     fun getData(keyword: String) {

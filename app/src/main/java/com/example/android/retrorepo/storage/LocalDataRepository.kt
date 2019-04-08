@@ -9,14 +9,9 @@ import com.example.android.retrorepo.storage.entities.SearchTermEntity
 
 class LocalDataRepository(context: Context, private val executors: AppExecutors, dataBase: AppDatabase) :
     DataRepository {
-    private val dataBase: AppDatabase
+    private val dataBase: AppDatabase = AppDatabase.invoke(context, executors)
 
-    private val searchTermDao: SearchTermDao
-
-    init {
-        this.dataBase = AppDatabase.invoke(context, executors)
-        this.searchTermDao = dataBase.searchTermDao()
-    }
+    private val searchTermDao: SearchTermDao = dataBase.searchTermDao()
 
     companion object {
 
@@ -34,6 +29,7 @@ class LocalDataRepository(context: Context, private val executors: AppExecutors,
             return sInstance
         }
     }
+
 
     override fun getSearchTerms(): LiveData<List<SearchTermEntity>> {
         val result = MutableLiveData<List<SearchTermEntity>>()

@@ -4,6 +4,6 @@ import android.arch.lifecycle.LiveData
 import com.example.android.retrorepo.storage.entities.SearchTermEntity
 
 interface DataRepository {
-    val searchTerms: LiveData<List<SearchTermEntity>>
+    fun getSearchTerms(): LiveData<List<SearchTermEntity>>
 
 }
