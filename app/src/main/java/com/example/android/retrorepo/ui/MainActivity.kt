@@ -3,6 +3,8 @@ package com.example.android.retrorepo.ui
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.BottomSheetBehavior
 import android.support.v4.app.FragmentActivity
@@ -16,6 +18,7 @@ import com.example.android.retrorepo.R
 import com.example.android.retrorepo.ViewModelFactory
 import com.example.android.retrorepo.enums.State
 import com.example.android.retrorepo.remote.data.Item
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_repository_detail.*
 import kotlinx.android.synthetic.main.layout_repository_detail.view.*
@@ -52,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         buttonSearch.setOnClickListener { v ->
+            progressBarHome.visibility = View.VISIBLE
             viewModel.getData(editTextSearch.text.toString())
             editTextSearch.closeSoftKeyboard()
 
@@ -59,6 +63,16 @@ class MainActivity : AppCompatActivity() {
 
         editTextSearch.setOnFocusChangeListener { v, hasFocus ->
             if (hasFocus) buttonSearch.visibility = View.VISIBLE
+        }
+
+        textUrl.setOnClickListener { v ->
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse(v.textUrl.text.toString()))
+            startActivity(i)
+        }
+
+        textUserUrl.setOnClickListener { v ->
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse(v.textUserUrl.text.toString()))
+            startActivity(i)
         }
 
         //----------------- Observer
@@ -86,6 +100,8 @@ class MainActivity : AppCompatActivity() {
                     bottomSheet.textDescription.text = item.description
                     bottomSheet.textLanguageDetail.text = item.language
                     bottomSheet.textUrl.text = item.repoUrl
+                    Picasso.get().load(item.owner.avatar).placeholder(R.drawable.ic_launcher_background)
+                        .resize(160, 160).into(imageUser)
 
                 }
             }

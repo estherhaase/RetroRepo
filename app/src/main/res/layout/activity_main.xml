@@ -9,7 +9,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginBottom="@dimen/peek_height">
+            android:layout_marginBottom="@dimen/peek_height"
+            android:background="@color/retroWhite">
         <android.support.design.widget.AppBarLayout
                 android:id="@+id/appBarLayout"
                 android:layout_width="match_parent"
@@ -32,7 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="true"
-                android:focusableInTouchMode="true">
+                android:focusableInTouchMode="true"
+        >
 
             <EditText
                     android:id="@+id/editTextSearch"
@@ -49,17 +51,27 @@
                     android:layout_gravity="end|center_vertical"
             />
         </FrameLayout>
-        <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_repos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/list_item_content">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ProgressBar
+                    android:id="@+id/progressBarHome"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_list_item"
+                    android:layout_gravity="center_horizontal"/>
 
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_repos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/list_item_content"
+                    android:scrollbars="vertical">
+            </android.support.v7.widget.RecyclerView>
 
-        </android.support.v7.widget.RecyclerView>
+        </FrameLayout>
     </LinearLayout>
     <include
             android:id="@+id/bottomSheet"
-            layout="@layout/layout_repository_detail"/>
+            layout="@layout/layout_repository_detail"
+    />
 </android.support.design.widget.CoordinatorLayout>
 

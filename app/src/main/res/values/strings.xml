@@ -10,4 +10,5 @@
     <string name="title_language">Language:</string>
     <string name="title_score">Score:</string>
     <string name="title_repository_url">Repository Url:</string>
+    <string name="content_descr_users_avatar">Users avatar</string>
 </resources>

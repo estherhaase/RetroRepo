@@ -42,4 +42,6 @@ ext {
 
     archLifecycleVersion = '1.1.1'
     archPagingVersion = '1.0.1'
+
+   picassoVersion = '2.71828'
 }

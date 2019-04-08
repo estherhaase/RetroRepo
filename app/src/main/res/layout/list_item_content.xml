@@ -5,7 +5,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        style="@style/AppTheme.ListItem">
+        style="@style/AppTheme.ListItem"
+        android:background="@color/retroWhite">
 
     <TextView
             android:id="@+id/textLanguage"

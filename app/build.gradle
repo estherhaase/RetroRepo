@@ -53,4 +53,8 @@ dependencies {
 
     implementation "android.arch.lifecycle:viewmodel:$archLifecycleVersion"
     implementation "android.arch.paging:runtime:$archPagingVersion"
+
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
+
+
 }

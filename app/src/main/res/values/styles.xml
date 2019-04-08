@@ -41,6 +41,7 @@
         <item name="android:padding">@dimen/padding_tiny</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
     </style>
 
     <style name="AppTheme.ButtonSearch" parent="Widget.AppCompat.Button.Colored">

@@ -10,6 +10,7 @@
     <dimen name="padding_big">24dp</dimen>
 
     <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
 
     <dimen name="height_list_item">64dp</dimen>
     <dimen name="height_text_view_list">36dp</dimen>
