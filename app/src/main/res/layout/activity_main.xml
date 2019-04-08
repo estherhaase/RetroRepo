@@ -36,13 +36,14 @@
                 android:focusableInTouchMode="true"
         >
 
-            <EditText
+            <AutoCompleteTextView
                     android:id="@+id/editTextSearch"
                     style="@style/AppTheme.CustomEditText"
                     android:hint="@string/hint_search"
                     android:imeOptions="actionDone"
                     android:inputType="text|textCapSentences"
-                    tools:ignore="Autofill"/>
+                    tools:ignore="Autofill"
+                    android:completionThreshold="1"/>
             <Button
                     android:id="@+id/buttonSearch"
                     style="@style/AppTheme.ButtonSearch"

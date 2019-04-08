@@ -11,13 +11,16 @@ import com.example.android.retrorepo.paging.RepositoryDataSource
 import com.example.android.retrorepo.paging.RepositoryDataSourceFactory
 import com.example.android.retrorepo.remote.NetworkService
 import com.example.android.retrorepo.remote.data.Item
+import com.example.android.retrorepo.storage.DataRepository
 import com.example.android.retrorepo.tools.Constants
 
-class MainViewModel(private val networkService: NetworkService) : ViewModel() {
+class MainViewModel(private val networkService: NetworkService, private val dataRepository: DataRepository?) :
+    ViewModel() {
 
     private lateinit var repositoryDataSourceFactory: RepositoryDataSourceFactory
     var repositoriesMediator = MediatorLiveData<PagedList<Item>>()
     var state = MediatorLiveData<State>()
+    var searchTerms = dataRepository!!.searchTerms
 
 
     fun getData(keyword: String) {

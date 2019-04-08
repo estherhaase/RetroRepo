@@ -4,17 +4,19 @@ import android.app.Application
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.example.android.retrorepo.remote.NetworkService
+import com.example.android.retrorepo.storage.DataRepository
 import com.example.android.retrorepo.ui.MainViewModel
 
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory private constructor(
     private val application: Application,
-    private val networkService: NetworkService
+    private val networkService: NetworkService,
+    private val dataRepository: DataRepository?
 ) : ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
-            MainViewModel(networkService) as T
+            MainViewModel(networkService, dataRepository) as T
         } else {
             throw IllegalArgumentException("Unknown ViewModel Class: " + modelClass.name)
         }
@@ -30,7 +32,11 @@ class ViewModelFactory private constructor(
                 synchronized(ViewModelFactory::class.java) {
                     if (sInstance == null) {
                         if (application is RetroRepoApplication) {
-                            sInstance = ViewModelFactory(application, application.getNetworkService())
+                            sInstance = ViewModelFactory(
+                                application,
+                                application.getNetworkService(),
+                                application.getDataRepository()
+                            )
 
                         } else {
                             throw RuntimeException("Application class must be of type RetroRepoApplication")

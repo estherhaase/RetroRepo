@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import com.example.android.retrorepo.R
 import com.example.android.retrorepo.ViewModelFactory
@@ -87,6 +88,16 @@ class MainActivity : AppCompatActivity() {
             if (!viewModel.isItemListEmpty()) {
                 repositoryListAdapter.setState(State.FINISHED)
             }
+        })
+
+        viewModel.searchTerms.observe(this, Observer {
+            val list = ArrayList<String>()
+            for (t in it!!.iterator()) {
+                list.add(t.name)
+            }
+            val adapter = ArrayAdapter<String>(this, R.layout.list_item_dropdown, list)
+            editTextSearch.setAdapter(adapter)
+
         })
 
         repositoryListAdapter.setOnItemClickListener(object : RepositoryListAdapter.ItemClickListener {

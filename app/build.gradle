@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -50,11 +52,14 @@ dependencies {
 
     implementation "com.jakewharton.timber:timber:$timberVersion"
     implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
 
     implementation "android.arch.lifecycle:viewmodel:$archLifecycleVersion"
     implementation "android.arch.paging:runtime:$archPagingVersion"
 
     implementation "com.squareup.picasso:picasso:$picassoVersion"
 
+    debugImplementation "com.amitshekhar.android:debug-db:$debugDbVersion"
 
 }
