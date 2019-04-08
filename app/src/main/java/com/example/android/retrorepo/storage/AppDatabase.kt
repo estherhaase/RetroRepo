@@ -163,7 +163,7 @@ abstract class AppDatabase : RoomDatabase() {
                         searchTermList.add(
                             SearchTermEntity(
                                 null,
-                                "Kotlin"
+                                "Pacman"
                             )
                         )
                         searchTermList.add(
