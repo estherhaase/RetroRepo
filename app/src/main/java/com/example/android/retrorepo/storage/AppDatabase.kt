@@ -8,6 +8,7 @@ import android.content.Context
 import com.example.android.retrorepo.AppExecutors
 import com.example.android.retrorepo.storage.dao.SearchTermDao
 import com.example.android.retrorepo.storage.entities.SearchTermEntity
+import timber.log.Timber
 
 @Database(entities = [SearchTermEntity::class], version = 1)
 
@@ -31,7 +32,8 @@ abstract class AppDatabase : RoomDatabase() {
             .addCallback(object : RoomDatabase.Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     super.onCreate(db)
-                    appExecutors.diskIO().execute { ->
+                    appExecutors.diskIO().execute {
+                        Timber.i("Create Database")
 
                         val searchTermList = ArrayList<SearchTermEntity>()
                         searchTermList.add(

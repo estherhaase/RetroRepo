@@ -16,5 +16,7 @@
     <dimen name="height_text_view_list">36dp</dimen>
 
     <dimen name="divider_height">1dp</dimen>
-    <dimen name="peek_height">32dp</dimen>
+    <dimen name="peek_height">40dp</dimen>
+
+    <dimen name="avatar_size">160dp</dimen>
 </resources>
